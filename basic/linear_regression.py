@@ -20,3 +20,4 @@ x_test = np.array([8, 7], dtype=np.float32)
 y_pred = model.predict(x_test)
 
 print(y_pred)
+
