@@ -1,3 +1,7 @@
+## TensorFlow
+- TensorFlow is a framework using Data Flow Grap structure, and open source software library made by Google.
+- 
+
 ## Why TensorFlow?
 - Representation through data flow graphs.
 - Automatically process differential calculations if only the calculation structure and target function are defined.
