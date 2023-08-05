@@ -1,18 +1,16 @@
 import os
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
-
-# 현재 스크립트의 디렉토리 경로 가져오기
-input_file_path = 'D:/data-science/tensorflow/datasets/kernelinput.csv'
-output_file_path = 'D:/data-science/tensorflow/datasets/centralProbability.csv'
+from config.global_config import INPUT_PATH_MAC, OUTPUT_PATH_MAC, INPUT_PATH_WINDOW, OUTPUT_PATH_WINDOW
 
 # 인풋 데이터 불러오기
-input_data = pd.read_csv(input_file_path)
+input_data = pd.read_csv(INPUT_PATH_MAC)
 
 # 아웃풋 데이터 불러오기
-output_data = pd.read_csv(output_file_path)
+output_data = pd.read_csv(OUTPUT_PATH_MAC)
 
 # 인풋 데이터와 아웃풋 데이터 합치기
 data = pd.concat([input_data, output_data], axis=1)

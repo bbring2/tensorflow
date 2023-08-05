@@ -4,13 +4,10 @@ from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from sklearn.metrics import mean_squared_error
+from config.global_config import INPUT_PATH_MAC, INPUT_PATH_WINDOW, OUTPUT_PATH_WINDOW, OUTPUT_PATH_MAC
 
-# 현재 스크립트의 디렉토리 경로 가져오기
-input_file_path = 'D:/data-science/tensorflow/datasets/kernelinput.csv'
-output_file_path = 'D:/data-science/tensorflow/datasets/centralProbability.csv'
-
-input_data = pd.read_csv(input_file_path)
-output_data = pd.read_csv(output_file_path)
+input_data = pd.read_csv(INPUT_PATH_MAC)
+output_data = pd.read_csv(OUTPUT_PATH_MAC)
 data = pd.concat([input_data, output_data], axis=1)
 
 X = input_data.values
@@ -23,7 +20,7 @@ X_train, X_test, y_train, y_test = train_test_split(X_normalized, y_normalized, 
 
 
 # 하이퍼파라미터 조정을 위한 함수
-def create_model(hidden_units=128, activation='relu', output_activation=None, optimizer='adam'):
+def create_model(hidden_units=643, activation='relu', output_activation=None, optimizer='adam'):
     model = Sequential()
     model.add(Dense(hidden_units, activation=activation, input_shape=(X_train.shape[1],)))
     if output_activation is not None:  # 출력층의 활성화 함수가 None이 아닐 때만 추가
